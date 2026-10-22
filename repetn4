@@ -1,0 +1,47 @@
+Algoritmo Decimal_A_Hexadecimal
+    Definir numero, cociente, residuo Como Entero
+    Definir hexadecimal, simbolo Como Cadena
+
+    Escribir "Ingrese un numero decimal entero no negativo:"
+    Leer numero
+
+    Mientras numero < 0 Hacer
+        Escribir "Error: ingrese un numero mayor o igual que cero:"
+        Leer numero
+    FinMientras
+
+    Si numero = 0 Entonces
+        hexadecimal = "0"
+    Sino
+        hexadecimal = ""
+        Mientras numero > 0 Hacer
+            cociente = Trunc(numero / 16)
+            residuo = numero MOD 16
+
+            Segun residuo Hacer
+                10:
+                    simbolo = "A"
+                11:
+                    simbolo = "B"
+                12:
+                    simbolo = "C"
+                13:
+                    simbolo = "D"
+                14:
+                    simbolo = "E"
+                15:
+                    simbolo = "F"
+                De Otro Modo:
+                    simbolo = ConvertirATexto(residuo)
+            FinSegun
+
+            hexadecimal = simbolo + hexadecimal
+
+            Escribir numero, " / 16 = ", cociente, " residuo ", residuo
+
+            numero = cociente
+        FinMientras
+    FinSi
+
+    Escribir "Numero hexadecimal: ", hexadecimal
+FinAlgoritmo
